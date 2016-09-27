@@ -1,0 +1,1 @@
+First run the grid through tetgen to generate Tetgen output, then test the utility on the output.

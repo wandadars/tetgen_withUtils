@@ -1,0 +1,17 @@
+first generate an initial mesh.  Then run the mesh refinement code with that initial mesh as the input & with the appropriate inputs to the refinment code. It will generate a *.vol file that is used for incremental mesh refinement. Then re-run tetgen with the mesh refinement flag turned on and it will use the newly created *.vol file to generate a new set of mesh files that will have a suffix of *.2.face, etc.  You can repeat this process as many times as you want, each time the refinement region boundary will become successively more well defined.
+
+
+1.) Generate mesh using command like: tetgen -pqa500Ck singleSphere.smesh
+
+2.) Run the 3d_amr_code and give it the casename of the tetgen output. Also make sure that there is a 'amr_inputs.txt' file with the appropriate mesh refinement options.
+
+3.) Re-run tetgen with a command like: tetgen -pqraCk singleSphere.1
+
+4.) The new mesh will be called singleSphere.2.*
+
+5.) Repeat step 2 and 3 with the exception that you increment the filename so that you are using the newest grid as an input.
+
+
+*If you plan to use conflu to conver the Tetgen mesh to CENTAUR format, then re-name the final mesh that you get such that the integer value is set back to one.
+	For example:  singleSphere.6.*  Rename all mesh files to -> singleSphere.1.*
+		*It's best to do this in a 'final_mesh' directory so that you don't screw up any files.

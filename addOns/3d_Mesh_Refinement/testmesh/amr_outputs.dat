@@ -1,0 +1,109 @@
+
+
+----------WELCOME TO TEGEN ADAPTIVE MESH REFINEMENT PROGRAM----------
+
+The Code reads in data from a 3D tetrahedral mesh and produces an adaptive mesh
+Run this code in the directory where the Tetgen mesh files are located.
+----------STARTING TETGEN MESH READER----------
+
+The Code reads tetrahedral meshes created by the program Tetgen. 
+
+What is file casename?  i.e. <casename>.node:Selected casename is: singleSphere.1 
+Reading File: singleSphere.1.node 
+
+Node File Data
+# of Nodes: 111719 
+# of Dimensions: 3
+Attribute Flag: 0 
+Marker Flag: 1 
+
+Reading File: singleSphere.1.ele 
+
+Element File Data
+# of Elements: 577721
+# of Verts Per Element:  4
+# of Attributes: 0 
+
+Finished Reading Tetgen Mesh .node and .ele Data Files
+
+
+Reading Data from input files: amr_inputs.dat
+Reading X,Y,Z coordinates of refinement Center and the AMR Flag
+
+Quadratic Element Scaling with Minimum Volume Scaling Selected
+
+Reading:
+ Refinement Radius
+ Volume Percent Threshold
+ Minimum Volume Factor(0 to 1)
+
+User Input Is:
+X-Center Coord:  0.000000
+Y-Center Coord:  0.000000
+Z-Center Coord:  0.000000
+Element Scaling Flag:  4
+Refinement Radius:  40.000000
+Percent Volume Inside Refinement Radius:  2.000000
+Minimum Volume Factor(0 to 1):  10.000000
+
+
+Computing Tetrahedral area constraints for .vol file...
+Data will be written to: "singleSphere.1.vol" 
+Allocation of Arrays Complete
+
+Mininum Volume:  1.77E-05 
+Critical Volume:  1.31E+01 
+Maximum Volume:  6.53E+02 
+Minimum Radius:  1.009890 
+Maximum Radius:  429.629790
+
+
+Solving the following Equations to Scale Element Volume
+OUTER SOLUTION
+2*C1*rmax + C2 = 0
+C1*rmax^2 + C2*rmax + C3 = Vmax
+C1*R0^2 + C2*R0 + C3 = V0
+
+INNER SOLUTION
+2*C1*rmin + C2 = 0
+C1*rmin^2 + C2*rmin + C3 = Vmin
+C1*R0^2 + C2*R0 + C3 = V0
+
+Numerical Coeffients for system of equations are the following:
+
+Coefficients for OUTER SOLUTION...
+[8.59E+02]C1 + [1.00E+00]C2 + [0.00E+00]C3 = [0.00E+00]
+[1.85E+05]C1 + [4.30E+02]C2 + [1.00E+00]C3 = [6.53E+02]
+[1.60E+03]C1 + [4.00E+01]C2 + [1.00E+00]C3 = [1.31E+01]
+
+Numerical Coeffients for system of equations are the following:
+
+Coefficients for INNER SOLUTION...
+[2.02E+00]C4 + [1.00E+00]C5 + [0.00E+00]C6 = [0.00E+00]
+[1.02E+00]C4 + [1.01E+00]C5 + [1.00E+00]C6 = [1.77E-05]
+[1.60E+03]C4 + [4.00E+01]C5 + [1.00E+00]C6 = [1.31E+01]
+
+Coefficients to the OUTER quadratic volume sizing function 
+V(r) = C1r^2 +C2r+C3 
+C1 =  -4.214E-03 
+C2 =   3.621E+00 
+C3 =  -1.250E+02
+
+Coefficients to the INNER quadratic volume sizing function 
+V(r) = C4r^2 +C5r+C6 
+C4 =   8.587E-03 
+C5 =  -1.734E-02 
+C6 =   8.776E-03
+
+Predicted Volumes Using Sizing Function(Check to see if it matches input)
+OUTER area sizing function predictions
+Max Volume:  6.53E+02
+Critical Volume:  1.31E+01
+
+
+INNER volume sizing function predictions
+Min Volume:  1.77E-05
+Critical Volume:  1.31E+01
+
+Creating List of Updated Element Volumes to .vol file...Printing to File Now
+Writing Adaptive Meshed Tetgen .vol file done.
